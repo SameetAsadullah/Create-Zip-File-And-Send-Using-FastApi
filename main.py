@@ -24,4 +24,5 @@ async def zip_download():
                 headers = {"Content-Disposition":f"attachment;filename=output.zip",
                             "Content-Length": str(zip_bytes_io.getbuffer().nbytes)}
             )
+    zip_bytes_io.close()
     return response
