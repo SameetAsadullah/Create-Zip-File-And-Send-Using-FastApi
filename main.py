@@ -21,7 +21,7 @@ async def zip_download():
     response = StreamingResponse(
                 iter([zip_bytes_io.getvalue()]),
                 media_type="application/x-zip-compressed",
-                headers = {"Content-Disposition":f"attachment;filename=output.zip",
+                headers = {"Content-Disposition":f"attachment;filename=output.zip",    # 'attachment' automatically downloads the file if IDM extension is enabled on browser. Use 'inline' to avoid that.
                             "Content-Length": str(zip_bytes_io.getbuffer().nbytes)}
             )
     zip_bytes_io.close()
